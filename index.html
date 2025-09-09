@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad Día 3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="encabezado">
+        <button class="encabezado-boton" onclick="iniciarCuestionario()">Iniciar Cuestionario</button>
+    </header>
+
+    <main>
+        <div class="fondo-arbol-container">
+            <img class="fondo-arbol izquierda" src="assets/fondo-arbol.png" alt="Árbol áreas tecnología">
+            <img class="fondo-arbol derecha" src="assets/fondo-arbol.png" alt="Árbol áreas tecnología">
+        </div>
+
+        <div class="modal" id="modal">
+            <div class="modal-contenido">
+                <p id="pregunta"></p>
+                <input type="text" id="respuesta" placeholder="Escribe aquí..." >
+                <button onclick="enviarRespuesta()">Ok</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        Desarrollado por Pablo Kloster
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

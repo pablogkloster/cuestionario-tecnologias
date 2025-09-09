@@ -1,0 +1,122 @@
+* { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+
+body {
+  background-color: #333446;
+  color: white;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.encabezado {
+  height: 80px;          /* header de 120px de alto */
+  display: flex;
+  justify-content: center; /*Centra horizontalmente*/
+  align-items: center;    /* centra verticalmente el botón */
+}
+
+.encabezado-boton {
+  height: 50px;
+  width: 300px;
+  font-size: 24px;
+  font-weight: 600;
+  border-radius: 6px;
+  border: none;
+  background-color: #fa77ed;
+  color: white;
+  cursor: pointer;
+}
+
+main {
+  flex: 1; /* crece para ocupar el espacio restante */
+  position: relative; /* necesario para que la img absoluta se ajuste */
+}
+
+.fondo-arbol-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;   /* 👈 ocupa todo el ancho */
+  height: 100%;  /* 👈 ocupa todo el alto */
+  z-index: -1;
+}
+
+.fondo-arbol {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: grayscale(100%);   /* 👈 ambas partes empiezan a color */
+  transition: filter 1s ease;
+}
+
+/* mostrar solo la mitad izquierda */
+.fondo-arbol.izquierda {
+  clip-path: inset(0 50% 0 0); /* top right bottom left */
+}
+
+/* mostrar solo la mitad derecha */
+.fondo-arbol.derecha {
+  clip-path: inset(0 0 0 50%);
+}
+
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  /* El fondo del modal principal sigue siendo solo el oscurecimiento */
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+}
+
+.modal.visible {
+  display: flex;
+}
+
+.modal-contenido {
+  display: flex;
+  flex-direction: column; /* Lo puse en columna para que los elementos se apilen verticalmente */
+  gap: 15px; /* Espacio entre los elementos del contenido */
+  padding: 20px;
+  border-radius: 8px;
+  
+  /* 👉 Aquí aplicamos el efecto de esmerilado al contenido del modal */
+  background: rgba(255, 255, 255, 0.2); /* Fondo blanco semitransparente para que el filtro sea visible */
+  backdrop-filter: blur(8px); /* Ajusta el valor del desenfoque a tu gusto */
+  -webkit-backdrop-filter: blur(8px); /* Soporte para WebKit */
+  
+  /* Asegura que el contenido sea legible sobre el fondo esmerilado */
+  color: white; /* Color de texto más oscuro para contraste, o el que prefieras */
+  font-size: 24px;
+  font-weight: 600;
+}
+
+/* El .modal.visible solo se encarga de mostrar el modal principal */
+
+
+/* Footer con altura fija */
+footer {
+  height: 60px;
+  background: #333446;
+  color: white;
+  font-size: 24px;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
